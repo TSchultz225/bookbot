@@ -13,7 +13,21 @@ def get_book_characters(book_contents):
 
         if char_dic.get(char) == None:
             char_dic[char]=0
-
         char_dic[char] += 1
     
     return char_dic
+
+def sort_on(items):
+    return items["num"]
+
+def pretty_dictionary_report(char_dic):
+
+    dic_list = []
+    for char in char_dic:
+
+        if char.isalpha():
+            new_dict = {"name": char, "num": char_dic[char]}
+            dic_list.append(new_dict)
+    
+    dic_list.sort(reverse=True, key=sort_on)
+    return dic_list
